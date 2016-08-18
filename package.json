@@ -1,0 +1,16 @@
+{
+  "name": "moviesearch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev":"webpack-dev-server & webpack --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "webpack": "^1.13.1"
+  }
+}
