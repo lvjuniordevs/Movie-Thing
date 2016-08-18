@@ -3,11 +3,28 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../app/styles/main.css">
 </head>
 <body class='ng-cloak'>
 <div ng-controller="dashboardController" ng-init="init()">
-	<p>hi {{name}}</p>
+	<div class='master'>
+
+		<form class="form-group">
+			<input class="form-control" ng-model="model" ng-change="filterData()"/>
+		</form>
+
+		<div class='list-contain'>
+			<ul class="list-group">
+				<li class='movie-list list-group-item' ng-repeat="items in data | orderBy: -title">
+				<span>{{items.movie.title}}</span>
+				<span class='pull-right'>{{items.movie.year}}</span>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+
 </div>
 
 <script type="text/javascript" src='./js/vendor.bundle.js'></script>

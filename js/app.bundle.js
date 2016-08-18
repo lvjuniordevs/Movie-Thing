@@ -23,7 +23,7 @@ webpackJsonp([0],[
 
 
 
-	angular.module('myApp').controller('dashboardController',['$scope','$http',control]);
+	angular.module('myApp').controller('dashboardController',['$scope','$http','$filter',control]);
 
 
 
@@ -38,10 +38,13 @@ webpackJsonp([0],[
 
 	var angular = __webpack_require__(2);
 
-	function control($scope,$http) {
+	function control($scope,$http,$filter) {
 
 		$scope.apiKey = "7642d2dacbaa96c7f8f55b4972c0d78cf73f422d8a86bf8ed5bf4e3c57c274a2";
-
+		$scope.data = [];
+		$scope.master = [];
+		var inputLen = $scope.model;
+		
 	        $scope.init = function() {
 	            //API requires a start date
 	            var today = new Date();
@@ -59,9 +62,26 @@ webpackJsonp([0],[
 				        "trakt-api-key":$scope.apiKey
 				    },
 				    data:''
-				}).success(function(response){
-				    console.log(response)
+				}).success(function(resp){
+					console.log(resp)
+				    $scope.data = resp;
+				    $scope.master = resp;
 				});
+
+			$scope.filterData = function() {
+				var len = $scope.model.length
+
+				var inputData = $scope.model.toLowerCase();
+				
+				$scope.data = $scope.master.filter(function(item){
+
+					if(inputData===item.movie.title.substring(0,len).toLowerCase()){
+						return true;
+					}
+				});
+
+				console.log($scope.data)
+			}
 
 
 	            // $http.get("http://api.trakt.tv/search/movies.format/" + $scope.apiKey).success(function(resp){

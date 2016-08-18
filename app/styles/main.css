@@ -2,3 +2,29 @@
   display: none !important;
 }
 
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.master {
+	width: 50%;
+	height:500px;
+	margin:auto;
+}
+
+.list-contain {
+	height:100%;
+	overflow: auto;
+	border:3px solid #ddd;
+	border-radius: 7px;
+}
+
+.list-group-item:hover {
+	background-color: #ddd;
+}
+
+input {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	padding:10px 0 10px 0;
+}

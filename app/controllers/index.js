@@ -5,6 +5,6 @@ var control = require('./control.js');
 
 
 
-angular.module('myApp').controller('dashboardController',['$scope','$http',control]);
+angular.module('myApp').controller('dashboardController',['$scope','$http','$filter',control]);
 
 
